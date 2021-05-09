@@ -1,6 +1,6 @@
-const getAll = function (req, res) {
-  res.send({ results: [] });
-};
+const getAll = async (repository) => {
+    return await repository.getAll();
+}
 
 module.exports = {
   getAll,
