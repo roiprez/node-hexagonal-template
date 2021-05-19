@@ -1,10 +1,6 @@
-const mongoose = require("mongoose");
-
-const UserSchema = new mongoose.Schema({
-  name: String,
-  surname: String,
-});
-
-const User = mongoose.model("user", UserSchema);
+const User = function User(name, surname) {
+  this.name = name;
+  this.surname = surname;
+};
 
 module.exports = User;

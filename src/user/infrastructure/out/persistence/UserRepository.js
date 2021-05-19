@@ -1,9 +1,20 @@
-const User = require("../../../domain/User");
+const UserModel = require("./UserModel");
+const BaseRepository = require("../../../../shared/domain/BaseRepository");
 
-const getAll = async () => {
-  return await User.find({});
+const UserRepository = function UserRepository() {
+  BaseRepository.call(this);
+
+  this.getAll = () => {
+    return ["Has one item"];
+  };
+
+  this.save = async (user) => {
+    const doc = await UserModel.create({
+      name: user.name,
+      surname: user.surname,
+    });
+    return `User saved: ${doc.name}`;
+  };
 };
 
-module.exports = {
-  getAll,
-};
+module.exports = UserRepository;
